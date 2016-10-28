@@ -32,5 +32,5 @@
 你也可以在这里边添加自己想要的动画。
 #效果图
 ![滑动隐藏.gif](http://upload-images.jianshu.io/upload_images/1979970-72f7ad06020886fe.gif?imageMogr2/auto-orient/strip)
-#Demo地址
-https://github.com/JmoVxia/TableBarHidden
+#简书地址
+http://www.jianshu.com/p/16a0a862b486
