@@ -12,6 +12,9 @@
 
 /**tableView*/
 @property (nonatomic,strong) UITableView *tableView;
+/**滑动位置记录*/
+@property (nonatomic,assign) CGFloat lastContentOffset;
+
 
 @end
 
@@ -46,11 +49,17 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     return cell;
 }
-//滑动代理
-- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+#pragma mark - tableview滑动代理
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    _lastContentOffset = scrollView.contentOffset.y;
+    
+}
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     
-    if(scrollView.contentOffset.y>0)
+    if(scrollView.contentOffset.y > _lastContentOffset)
     {
         //上滑
 //        [UIView animateWithDuration:1.0 animations:^{
