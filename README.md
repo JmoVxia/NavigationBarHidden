@@ -6,12 +6,17 @@
 #核心代码
 ```
 
-
-//滑动代理
-- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+#pragma mark - 滑动代理
+//开始滑动的时候记录位置
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    _lastContentOffset = scrollView.contentOffset.y;
+    
+}
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     
-    if(scrollView.contentOffset.y>0)
+    if(scrollView.contentOffset.y > _lastContentOffset)
     {
         //上滑
 //        [UIView animateWithDuration:1.0 animations:^{
@@ -27,6 +32,10 @@
 //        }];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
+    
+
+}
+    
     
 ```
 你也可以在这里边添加自己想要的动画。
